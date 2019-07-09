@@ -20,7 +20,7 @@ class ImageData:
         else:
             self.test_dir = test_dir
         # to be excuted only once to create the testing and training directories
-        #self.copy_data()
+        self.copy_data()
         self.train_x, self.train_y = self.prepare_data(self.train_dir)
         self.test_x, self.test_y = self.prepare_data(self.test_dir)
         
@@ -53,7 +53,7 @@ class ImageData:
              
 
     # select only 4 types of power plant images and split them into train and test data in seperate directories  
-    def copy_data(self, args = ['WND','SUN']):
+    def copy_data(self, args = ['WND','WAT']):
         # Create target Directories if they don't exist
         if not os.path.exists(self.train_dir):
             os.mkdir(self.train_dir)
@@ -83,5 +83,4 @@ class ImageData:
         return np.random.binomial(size = 1, n = 1, p = 0.8)
 
 
-#imdt.copy_data()
 

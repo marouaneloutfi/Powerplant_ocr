@@ -1,7 +1,8 @@
 from keras.optimizers import Adam
+from keras.losses import categorical_crossentropy
 from Image import ImageData
 from CNN import Cnn
-import keras
+
 
 
 batch_size = 128
@@ -9,11 +10,12 @@ num_classes = 2
 epochs = 15
 
 
+
 imdt = ImageData('../PP_Data/images')
 cnn = Cnn()
-model = cnn.model3()
-model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.Adadelta(),
+model = cnn.model()
+model.compile(loss= categorical_crossentropy,
+              optimizer = Adam(),
               metrics=['accuracy'])
 
 model.fit(imdt.train_x, imdt.train_y,
