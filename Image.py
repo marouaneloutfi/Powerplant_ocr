@@ -37,7 +37,7 @@ class ImageData:
             data_x.append(np.array(img))
         data_x = np.stack(data_x)
         data_x = data_x.reshape(data_x.shape[0],75,75,1).astype('float32')
-        data_x /=255
+        data_x /=255.0
         data_y = self.one_hot_encode(labels)
         return data_x,data_y
                     
@@ -53,7 +53,7 @@ class ImageData:
              
 
     # select only 4 types of power plant images and split them into train and test data in seperate directories  
-    def copy_data(self, args = ['NG','SUN']):
+    def copy_data(self, args = ['WND','SUN']):
         # Create target Directories if they don't exist
         if not os.path.exists(self.train_dir):
             os.mkdir(self.train_dir)
