@@ -20,7 +20,7 @@ class ImageData:
         else:
             self.test_dir = test_dir
         # to be excuted only once to create the testing and training directories
-        self.copy_data()
+       # self.copy_data()
         self.train_x, self.train_y = self.prepare_data(self.train_dir)
         self.test_x, self.test_y = self.prepare_data(self.test_dir)
         
